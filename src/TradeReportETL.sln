@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{904658D6-5611-4B85-8C5E-4F49F72C6F65}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{66839031-F94F-4B51-90C9-14029432F8EF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{3A52100F-F65D-4B81-94E0-7296FEB869A5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeReportETL.Common", "Common\TradeReportETL.Common\TradeReportETL.Common.csproj", "{F50F9FED-EAB0-490D-B311-953EB7853C79}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeReportETL.Shared", "Services\TradeReportETL.Shared\TradeReportETL.Shared.csproj", "{8DF83631-DCBD-46CB-AA9E-E925CB1AEE41}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeReportETL.Pipeline.Extract", "Api\TradeReportETL.Pipeline.Extract\TradeReportETL.Pipeline.Extract.csproj", "{67AFC74C-0ABA-4DD8-BA96-A323846C7376}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeReportETL.Pipeline", "Services\TradeReportETL.Pipeline\TradeReportETL.Pipeline.csproj", "{53D32910-69C4-4D73-9692-5980DF1891BD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeReportETL.Pipeline.Transform", "Api\TradeReportETL.Pipeline.Transform\TradeReportETL.Pipeline.Transform.csproj", "{4506D2E2-0FBB-4EF5-A2B8-922DB3674438}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeReportETL.Pipeline.Load", "Api\TradeReportETL.Pipeline.Load\TradeReportETL.Pipeline.Load.csproj", "{08E3FDCE-4B22-4BF1-923E-F55B8695C0B3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeReportETL.TransactionCost", "Api\TradeReportETL.TransactionCost\TradeReportETL.TransactionCost.csproj", "{D0AA2FA1-BD1E-426B-B08E-83463DBCFFC2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeReportETL.ImportExport", "Api\TradeReportETL.ImportExport\TradeReportETL.ImportExport.csproj", "{966C2341-D365-4DDD-9AFE-169996FE9BF5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F50F9FED-EAB0-490D-B311-953EB7853C79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F50F9FED-EAB0-490D-B311-953EB7853C79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F50F9FED-EAB0-490D-B311-953EB7853C79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F50F9FED-EAB0-490D-B311-953EB7853C79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DF83631-DCBD-46CB-AA9E-E925CB1AEE41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DF83631-DCBD-46CB-AA9E-E925CB1AEE41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DF83631-DCBD-46CB-AA9E-E925CB1AEE41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DF83631-DCBD-46CB-AA9E-E925CB1AEE41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67AFC74C-0ABA-4DD8-BA96-A323846C7376}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67AFC74C-0ABA-4DD8-BA96-A323846C7376}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67AFC74C-0ABA-4DD8-BA96-A323846C7376}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67AFC74C-0ABA-4DD8-BA96-A323846C7376}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53D32910-69C4-4D73-9692-5980DF1891BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53D32910-69C4-4D73-9692-5980DF1891BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53D32910-69C4-4D73-9692-5980DF1891BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53D32910-69C4-4D73-9692-5980DF1891BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4506D2E2-0FBB-4EF5-A2B8-922DB3674438}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4506D2E2-0FBB-4EF5-A2B8-922DB3674438}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4506D2E2-0FBB-4EF5-A2B8-922DB3674438}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4506D2E2-0FBB-4EF5-A2B8-922DB3674438}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08E3FDCE-4B22-4BF1-923E-F55B8695C0B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08E3FDCE-4B22-4BF1-923E-F55B8695C0B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08E3FDCE-4B22-4BF1-923E-F55B8695C0B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08E3FDCE-4B22-4BF1-923E-F55B8695C0B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0AA2FA1-BD1E-426B-B08E-83463DBCFFC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0AA2FA1-BD1E-426B-B08E-83463DBCFFC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0AA2FA1-BD1E-426B-B08E-83463DBCFFC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0AA2FA1-BD1E-426B-B08E-83463DBCFFC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{966C2341-D365-4DDD-9AFE-169996FE9BF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{966C2341-D365-4DDD-9AFE-169996FE9BF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{966C2341-D365-4DDD-9AFE-169996FE9BF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{966C2341-D365-4DDD-9AFE-169996FE9BF5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F50F9FED-EAB0-490D-B311-953EB7853C79} = {66839031-F94F-4B51-90C9-14029432F8EF}
+		{8DF83631-DCBD-46CB-AA9E-E925CB1AEE41} = {904658D6-5611-4B85-8C5E-4F49F72C6F65}
+		{67AFC74C-0ABA-4DD8-BA96-A323846C7376} = {3A52100F-F65D-4B81-94E0-7296FEB869A5}
+		{53D32910-69C4-4D73-9692-5980DF1891BD} = {904658D6-5611-4B85-8C5E-4F49F72C6F65}
+		{4506D2E2-0FBB-4EF5-A2B8-922DB3674438} = {3A52100F-F65D-4B81-94E0-7296FEB869A5}
+		{08E3FDCE-4B22-4BF1-923E-F55B8695C0B3} = {3A52100F-F65D-4B81-94E0-7296FEB869A5}
+		{D0AA2FA1-BD1E-426B-B08E-83463DBCFFC2} = {3A52100F-F65D-4B81-94E0-7296FEB869A5}
+		{966C2341-D365-4DDD-9AFE-169996FE9BF5} = {3A52100F-F65D-4B81-94E0-7296FEB869A5}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CDB7E44A-EAAC-4AF1-A4F9-1F3A1F9CFD79}
+	EndGlobalSection
+EndGlobal

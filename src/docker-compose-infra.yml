@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+
+  seq:
+    image: datalust/seq:latest
+    environment:
+      - ACCEPT_EULA=Y
+    ports:
+      - "45100:80"
+
+  redis-stack:
+    image: redis/redis-stack:latest
+    restart: always
+    environment:
+      - REDIS_ARGS=
+    ports:
+      - "6379:6379"
+      - "8001:8001"
+
+  rabbitmq:
+    restart: always
+    image: rabbitmq:3-management
+    ports:
+      - "15672:15672"
+      - "5672:5672"

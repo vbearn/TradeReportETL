@@ -1,0 +1,126 @@
+version: '3.4'
+
+services:
+
+  seq:
+    image: datalust/seq:latest
+    environment:
+      - ACCEPT_EULA=Y
+    ports:
+      - "45100:80"
+
+  redis:
+    image: redis/redis-stack:latest
+    healthcheck:
+      test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
+      interval: 10s
+      timeout: 30s
+      retries: 10
+    restart: always
+    environment:
+      - REDIS_ARGS=
+    ports:
+      - "6379:6379"
+      - "8001:8001"
+
+  rabbitmq:
+    restart: always
+    image: rabbitmq:3-management
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 10s
+      timeout: 30s
+      retries: 10
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+
+  ftpserver:
+    container_name: ftpserver
+    environment:
+      - USERS=user|123
+    image: delfer/alpine-ftp-server
+    ports:
+      - '20-21:20-21/tcp'
+      - '21000-21010:21000-21010/tcp'
+
+  importexport:
+    build:
+      context: .
+      dockerfile: Api/TradeReportETL.ImportExport/Dockerfile
+    ports:
+      - "45000:80"
+    depends_on:
+      ftpserver:
+        condition: service_started
+      rabbitmq:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      seq:
+        condition: service_started
+
+
+  extract:
+    build:
+      context: .
+      dockerfile: Api/TradeReportETL.Pipeline.Extract/Dockerfile
+    ports:
+      - "45010:80"
+    depends_on:
+      ftpserver:
+        condition: service_started
+      rabbitmq:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      seq:
+        condition: service_started
+
+  transform:
+    build:
+      context: .
+      dockerfile: Api/TradeReportETL.Pipeline.Transform/Dockerfile
+    ports:
+      - "45020:80"
+    depends_on:
+      ftpserver:
+        condition: service_started
+      rabbitmq:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      seq:
+        condition: service_started
+
+  load:
+    build:
+      context: .
+      dockerfile: Api/TradeReportETL.Pipeline.Load/Dockerfile
+    ports:
+      - "45030:80"
+    depends_on:
+      ftpserver:
+        condition: service_started
+      rabbitmq:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      seq:
+        condition: service_started
+
+  transactioncost:
+    build:
+      context: .
+      dockerfile: Api/TradeReportETL.TransactionCost/Dockerfile
+    ports:
+      - "45040:80"
+    depends_on:
+      ftpserver:
+        condition: service_started
+      rabbitmq:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      seq:
+        condition: service_started
