@@ -65,7 +65,7 @@ It moves the data through the Extract (parsing CSV inputs), Transform (enriching
 
 - If there is any error happening while running the docker compose, please make sure that all the ports used in the file `docker-compose.yml` are free on your system, or alternatively, feel free to change the ports as needed.
 
-- Troubleshooting, monitoring, and tracing the ETL pipeline can be done through the Centralized Seq Log portal, accesible at ![http://localhost:45100](http://localhost:45100)
+- Troubleshooting, monitoring, and tracing the ETL pipeline can be done through the Centralized Seq Log portal, accesible at [http://localhost:45100](http://localhost:45100)
 
 ![](https://raw.githubusercontent.com/vbearn/TradeReportETL/master/images/seq.jpg)
 
