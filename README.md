@@ -48,7 +48,7 @@ The Api returns the enroched dataset in Json format. Other export formats could 
 ## Architecture overview
 
 
-This ETL pipeline is made with product environment in mide, capable of handling large loads of data imports. It is highly scalable and based on a microservice oriented architecture. Each step of the pipeline (Extract, Transform, Load) can be scaled out as needed, depending on the load levels of production environment.
+This ETL pipeline is made with product environment in mind, capable of handling large loads of data imports. It is highly scalable and based on a microservice oriented architecture. Each step of the pipeline (Extract, Transform, Load) can be scaled out as needed, depending on the load levels of production environment.
 
 All asyncronous connections between services follow microservice-design best practices, including resiliency through retries, cachings, circuit breakers, and using message brokers. 
 
@@ -60,3 +60,17 @@ All asyncronous connections between services follow microservice-design best pra
 The application is based on Batch-Stream data pipeline architecture.
 
 It moves the data through the Extract (parsing CSV inputs), Transform (enriching transactions with GLEIF and TransactionCost Api), and Load (uploading the transactions to data store, ready for export) stages, while batching the transactions to transform them through the third-party GLEIF api without hitting its DDoS limitations.
+
+## Troubleshooting
+
+- If there is any error happening while running the docker compose, please make sure that all the ports used in the file `docker-compose.yml` are free on your system, or alternatively, feel free to change the ports as needed.
+
+- Troubleshooting, monitoring, and tracing the ETL pipeline can be done through the Centralized Seq Log portal, accesible at ![http://localhost:45100](http://localhost:45100)
+
+![](https://raw.githubusercontent.com/vbearn/TradeReportETL/master/images/seq.jpg)
+
+## Deployment
+
+Deployment to the production environment can be done through Kubernetes (+Helm), as well as through the usual Cloud-based Container services (Azure Containers, AWS EC2, ...). 
+
+For the TransactionCost Calculator service, deployment through a Serverless platform (Azure Functions, AWS Lambda) is best recommended.
